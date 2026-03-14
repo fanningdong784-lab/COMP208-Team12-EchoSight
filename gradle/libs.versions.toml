@@ -1,0 +1,82 @@
+[versions]
+# Android Gradle Plugin (AGP) —— 使用稳定版！
+agp = "9.1.0"          # ✅ 稳定版，支持 compileSdk 36
+kotlin = "2.2.10"      # ✅ 与 AGP 8.5 官方兼容（Kotlin 2.2.x 要求 AGP ≥ 8.6+）
+
+# AndroidX & Core
+androidx-core-ktx = "1.15.0"           # ✅ 最新稳定版
+androidx-lifecycle-runtime-ktx = "2.8.4"
+androidx-activity-compose = "1.9.1"
+
+# Compose (使用 BOM 自动对齐，无需单独指定版本)
+androidx-compose-bom = "2024.09.00"    # ✅ 最新 BOM（含 Compose 1.7+）
+# 注意：下面这些 compose 版本可删除，由 BOM 统一管理！
+
+# Navigation
+androidx-navigation-compose = "2.8.0"  # ✅ 兼容 Compose BOM 2024.09
+
+# CameraX
+camerax-core = "1.5.3"
+camerax-camera2 = "1.5.3"
+camerax-lifecycle = "1.5.3"
+camerax-view = "1.5.3"
+
+# Image loading
+coil-compose = "2.7.0"
+
+# Permissions
+accompanist-permissions = "0.37.3"     # ⚠️ 注意：Accompanist 已停止维护，但 0.37.3 仍可用
+
+# TensorFlow Lite
+tensorflow-lite = "2.16.1"
+
+# Testing
+junit = "4.13.2"
+androidx-junit = "1.2.1"
+androidx-espresso-core = "3.6.1"
+# Compose 测试版本由 BOM 控制，无需单独指定
+
+[libraries]
+# Core
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
+
+# Compose —— 只声明模块，不指定版本（由 BOM 控制）
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-compose-bom" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui" }
+androidx-compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+
+# Navigation
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation-compose" }
+
+# CameraX
+camerax-core = { module = "androidx.camera:camera-core", version.ref = "camerax-core" }
+camerax-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camerax-camera2" }
+camerax-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camerax-lifecycle" }
+camerax-view = { module = "androidx.camera:camera-view", version.ref = "camerax-view" }
+
+# Coil
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
+
+# Permissions
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-permissions" }
+
+# TensorFlow Lite
+tensorflow-lite = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflow-lite" }
+
+# Test
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "androidx-espresso-core" }
+androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
